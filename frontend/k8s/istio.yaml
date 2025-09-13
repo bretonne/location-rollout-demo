@@ -1,0 +1,72 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: demo-gateway
+  namespace: kubecon-demo
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "demo.local"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: ui
+  namespace: kubecon-demo
+spec:
+  host: ui.kubecon-demo.svc.cluster.local
+  subsets:
+    - name: v1
+      labels: { version: v1 }
+    - name: v2
+      labels: { version: v2 }
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: demo-routes
+  namespace: kubecon-demo
+spec:
+  hosts:
+    - "demo.local"
+  gateways:
+    - demo-gateway
+  http:
+    # API (no rollout)
+    - match:
+        - uri:
+            prefix: "/api"
+      route:
+        - destination:
+            host: api.kubecon-demo.svc.cluster.local
+            port:
+              number: 8080
+
+    # UI header-based rollout
+    - match:
+        - headers:
+            x-software-route:
+              exact: "v1"
+      route:
+        - destination:
+            host: ui.kubecon-demo.svc.cluster.local
+            subset: v1
+            port:
+              number: 80
+
+    - match:
+        - headers:
+            x-software-route:
+              exact: "v2"
+      route:
+        - destination:
+            host: ui.kubecon-demo.svc.cluster.local
+            subset: v2
+            port:
+              number: 80
