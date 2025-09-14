@@ -28,3 +28,7 @@ curl http://localhost:8080/api/machines
 ```
 Or use Bruno to do a GET on http://localhost:8080/api/machines
 
+Istio troubleshooting:
+```
+istioctl analyze -n kubecon-demo
+```
