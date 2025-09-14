@@ -9,6 +9,9 @@ kubectl apply -f k8s/istio.yaml
 ```
 kubectl -n istio-system port-forward svc/istio-ingressgateway 8080:80
 ```
+Point Bruno to: http://demo.local:8080/api/machines
+
+# Verify that UI is running
 Open http://demo.local:8080/
 
 
