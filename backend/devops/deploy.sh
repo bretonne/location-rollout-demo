@@ -8,7 +8,7 @@ NAMESPACE="kubecon-demo"
 # Base dir (repo/backend)
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 VERSION_FILE="${BASEDIR}/VERSION"
-K8S_MANIFEST="${BASEDIR}/k8s/api-deploy.yaml"
+K8S_MANIFEST="${BASEDIR}/../k8s/api-deploy.yaml"
 
 usage() {
   cat <<EOF
@@ -26,46 +26,18 @@ if [[ ${1:-} == "-h" || ${1:-} == "--help" ]]; then
   exit 0
 fi
 
-# Read current version (from env or file)
-if [[ -n "${VERSION:-}" ]]; then
-  CURRENT_VERSION="${VERSION}"
-elif [[ -f "${VERSION_FILE}" ]]; then
-  CURRENT_VERSION="$(tr -d ' \n\r' < "${VERSION_FILE}")"
+COMMON_VERSION_SH="${BASEDIR}/../devops/version.sh"
+if [[ -f "${COMMON_VERSION_SH}" ]]; then
+  # shellcheck source=/dev/null
+  source "${COMMON_VERSION_SH}"
 else
-  echo "No VERSION found; creating default 0.1.0"
-  echo "0.1.0" > "${VERSION_FILE}"
-  CURRENT_VERSION="0.1.0"
-fi
-
-semver_regex='^([0-9]+)\.([0-9]+)\.([0-9]+)$'
-if [[ ! "${CURRENT_VERSION}" =~ ${semver_regex} ]]; then
-  echo "ERROR: current version '${CURRENT_VERSION}' is not a valid semver (X.Y.Z)"
+  echo "Missing shared version helper: ${COMMON_VERSION_SH}"
   exit 1
 fi
 
-# Handle bump command
-if [[ "${1:-}" == "bump" ]]; then
-  bump_type="${2:-patch}"
-  major=${BASH_REMATCH[1]}
-  minor=${BASH_REMATCH[2]}
-  patch=${BASH_REMATCH[3]}
-  case "${bump_type}" in
-    major)
-      major=$((major + 1)); minor=0; patch=0;;
-    minor)
-      minor=$((minor + 1)); patch=0;;
-    patch)
-      patch=$((patch + 1));;
-    *)
-      echo "Invalid bump type: ${bump_type}. Use major, minor, or patch."; exit 1;;
-  esac
-  NEW_VERSION="${major}.${minor}.${patch}"
-  echo "${NEW_VERSION}" > "${VERSION_FILE}"
-  echo "Bumped version: ${CURRENT_VERSION} -> ${NEW_VERSION}"
-  CURRENT_VERSION="${NEW_VERSION}"
-fi
+# Populate VERSION (accepts: bump [major|minor|patch])
+get_current_version "$@"
 
-VERSION="${CURRENT_VERSION}"
 IMAGE_TAG="${APP_NAME}:${VERSION}"
 
 echo "Building Docker image ${IMAGE_TAG} from ${BASEDIR}..."
