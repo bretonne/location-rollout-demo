@@ -5,7 +5,8 @@ metadata:
   namespace: kubecon-demo
   labels:
     app: ui
-    version: v1
+    version: "${VERSION}"
+    route: "${ROUTE}"
 spec:
   replicas: 3
   selector:
@@ -15,11 +16,13 @@ spec:
     metadata:
       labels:
         app: ui
-        version: v1
+        version: "${VERSION}"
+        route: "${ROUTE}"
     spec:
       containers:
         - name: ui
-          image: location-rollout-ui:latest
+          image: "${IMAGE_TAG}"
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
 ---
