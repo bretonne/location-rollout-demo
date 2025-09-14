@@ -16,10 +16,9 @@ get_current_version() {
   # Default VERSION_FILE if caller hasn't set one
   : "${VERSION_FILE:=${REPO_ROOT}/backend/VERSION}"
 
-  # Read from environment or VERSION file, or create default
-  if [[ -n "${VERSION:-}" ]]; then
-    CURRENT_VERSION="${VERSION}"
-  elif [[ -f "${VERSION_FILE}" ]]; then
+  # Always read the authoritative version from the VERSION file (or create default)
+  local CURRENT_VERSION
+  if [[ -f "${VERSION_FILE}" ]]; then
     CURRENT_VERSION="$(tr -d ' \n\r' < "${VERSION_FILE}")"
   else
     echo "No VERSION found; creating default 0.1.0 at ${VERSION_FILE}"
@@ -57,8 +56,7 @@ get_current_version() {
     CURRENT_VERSION="${NEW_VERSION}"
   fi
 
-  # Export VERSION for callers
+  # Export VERSION for callers (authoritative value from file)
   VERSION="${CURRENT_VERSION}"
   export VERSION
 }
-

@@ -12,12 +12,10 @@ K8S_MANIFEST="${BASEDIR}/../k8s/ui-deploy.yaml"
 
 usage() {
   cat <<EOF
-Usage: $(basename "$0") [bump [major|minor|patch]]
+Usage: $(basename "$0") ROUTE
 
-Commands:
-  bump [major|minor|patch]   Increment semantic version in ${VERSION_FILE} (default: patch)
-
-You must set the ROUTE environment variable (e.g. ROUTE=v1 or ROUTE=v2). You can also set VERSION to override the value in ${VERSION_FILE}.
+ROUTE must be provided as the single positional argument (example: ./$(basename "$0") v1).
+This script does not support bump/version commands or reading ROUTE from the environment.
 EOF
 }
 
@@ -26,24 +24,26 @@ if [[ ${1:-} == "-h" || ${1:-} == "--help" ]]; then
   exit 0
 fi
 
-COMMON_VERSION_SH="${BASEDIR}/../devops/version.sh"
-if [[ -f "${COMMON_VERSION_SH}" ]]; then
-  # shellcheck source=/dev/null
-  source "${COMMON_VERSION_SH}"
-else
-  echo "Missing shared version helper: ${COMMON_VERSION_SH}"
-  exit 1
-fi
-
-# Populate VERSION (accepts: bump [major|minor|patch])
-get_current_version "$@"
-
-# ROUTE must be provided via environment (no default)
-if [[ -z "${ROUTE:-}" ]]; then
-  echo "ERROR: ROUTE environment variable must be set (example: ROUTE=v1 or ROUTE=v2)"
+# ROUTE must be provided as the first (and only) positional argument
+if [[ -z "${1:-}" ]]; then
+  echo "ERROR: ROUTE is required. Example: ./$(basename "$0") v1"
   usage
   exit 1
 fi
+
+ROUTE="${1}"
+# basic validation: must start with 'v' (e.g. v1, v2)
+if [[ ! ${ROUTE} =~ ^v[0-9A-Za-z._-]*$ ]]; then
+  echo "ERROR: ROUTE must start with 'v' (e.g. v1). Provided: ${ROUTE}"
+  exit 1
+fi
+
+# Read VERSION from file (no bump behavior)
+if [[ ! -f "${VERSION_FILE}" ]]; then
+  echo "ERROR: missing version file: ${VERSION_FILE}"
+  exit 1
+fi
+VERSION="$(cat "${VERSION_FILE}")"
 
 IMAGE_TAG="${APP_NAME}:${VERSION}"
 
@@ -72,5 +72,3 @@ fi
 # Wait for rollout
 echo "Waiting for deployment rollout to finish..."
 kubectl rollout status deployment/ui -n "${NAMESPACE}" --timeout=120s
-
-echo "✅ Frontend UI deployed to namespace ${NAMESPACE} (version: ${VERSION}, route: ${ROUTE})"
