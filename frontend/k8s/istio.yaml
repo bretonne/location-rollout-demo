@@ -12,7 +12,8 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "demo.local"
+        - "ui.demo.local"
+        - "api.demo.local"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
@@ -36,20 +37,10 @@ metadata:
   namespace: kubecon-demo
 spec:
   hosts:
-    - "demo.local"
+    - "ui.demo.local"
   gateways:
-    - demo-gateway
+    - "demo-gateway"
   http:
-    # API (no rollout)
-    - match:
-        - uri:
-            prefix: "/api"
-      route:
-        - destination:
-            host: api.kubecon-demo.svc.cluster.local
-            port:
-              number: 8080
-
     # UI header-based rollout
     - match:
         - headers:

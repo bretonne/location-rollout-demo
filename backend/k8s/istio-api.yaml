@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: api-routes
+  namespace: kubecon-demo
+spec:
+  hosts:
+    - "api.demo.local"
+  gateways:
+    - "demo-gateway"
+  http:
+    - match:
+        - uri:
+            prefix: "/api"
+      route:
+        - destination:
+            host: api.kubecon-demo.svc.cluster.local
+            port:
+              number: 8080
+      # preserve host & headers if needed
+      # rewrite:          # uncomment if your service expects a different path
+      #   uri: "/"
