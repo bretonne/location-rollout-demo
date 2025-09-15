@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const MACHINE_ID = import.meta.env.VITE_MACHINE_ID || "store-001-kiosk-1";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 export default function App() {
   const [profile, setProfile] = useState(null);
@@ -8,7 +9,7 @@ export default function App() {
   const [ts, setTs] = useState(Date.now());
 
   const fetchProfile = async () => {
-    const res = await fetch(`/api/profile?machineId=${MACHINE_ID}`);
+    const res = await fetch(`${API_BASE_URL}/api/profile?machineId=${MACHINE_ID}`);
     if (!res.ok) return;
     const p = await res.json();
     setProfile(p);
