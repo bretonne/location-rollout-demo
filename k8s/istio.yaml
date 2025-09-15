@@ -20,12 +20,14 @@ metadata:
   name: ui
   namespace: kubecon-demo
 spec:
-  host: ui.kubecon-demo.svc.cluster.local
+  host: ui
   subsets:
     - name: v1
-      labels: { version: v1 }
+      labels:
+        route: v1
     - name: v2
-      labels: { version: v2 }
+      labels:
+        route: v2
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -36,15 +38,15 @@ spec:
   hosts:
     - "demo.local"
   gateways:
-    - demo-gateway
+    - "demo-gateway"
   http:
-    # API (no rollout)
+    # API route first: match /api and send to api service
     - match:
         - uri:
             prefix: "/api"
       route:
         - destination:
-            host: api.kubecon-demo.svc.cluster.local
+            host: api
             port:
               number: 8080
 
@@ -55,7 +57,7 @@ spec:
               exact: "v1"
       route:
         - destination:
-            host: ui.kubecon-demo.svc.cluster.local
+            host: ui
             subset: v1
             port:
               number: 80
@@ -66,7 +68,8 @@ spec:
               exact: "v2"
       route:
         - destination:
-            host: ui.kubecon-demo.svc.cluster.local
+            host: ui
             subset: v2
             port:
               number: 80
+
