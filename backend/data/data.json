@@ -3,6 +3,7 @@
     "store-001-kiosk-1": { "storeId": "store-001", "softwareRoute": "v1" },
     "store-001-kiosk-2": { "storeId": "store-001", "softwareRoute": "v1" },
     "store-002-kiosk-1": { "storeId": "store-002", "softwareRoute": "v1" },
+    "store-002-kiosk-2": { "storeId": "store-002", "softwareRoute": "v1" },
     "store-003-kiosk-1": { "storeId": "store-003", "softwareRoute": "v1" }
   }
 }
