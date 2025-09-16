@@ -6,5 +6,7 @@ export default defineConfig({
   root: '.',
   build: {
     outDir: 'dist'
-  }
+  },
+  // Optional: Set base if your app is served from a subpath (not needed here)
+  base: '/'
 });

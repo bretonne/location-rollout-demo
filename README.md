@@ -35,3 +35,7 @@ Istio troubleshooting:
 ```
 istioctl analyze -n kubecon-demo
 ```
+Check pods based on lables:
+```
+kubectl get pods -n kubecon-demo -l app=ui
+```
