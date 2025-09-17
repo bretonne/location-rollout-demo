@@ -64,11 +64,11 @@ echo "$apply_output"
 # If unchanged, explicitly set image and label so pods pick up the new image
 if echo "$apply_output" | grep -q -i "unchanged"; then
   echo "Manifest reported 'unchanged' — updating deployment image and label explicitly..."
-  kubectl set image deployment/ui ui="${IMAGE_TAG}" -n "${NAMESPACE}"
-  kubectl label deployment/ui version="${VERSION}" route="${ROUTE}" -n "${NAMESPACE}" --overwrite
-  kubectl rollout restart deployment/ui -n "${NAMESPACE}"
+  kubectl set image deployment/ui-${ROUTE} ui="${IMAGE_TAG}" -n "${NAMESPACE}"
+  kubectl label deployment/ui-${ROUTE} version="${VERSION}" route="${ROUTE}" -n "${NAMESPACE}" --overwrite
+  kubectl rollout restart deployment/ui-${ROUTE} -n "${NAMESPACE}"
 fi
 
 # Wait for rollout
 echo "Waiting for deployment rollout to finish..."
-kubectl rollout status deployment/ui -n "${NAMESPACE}" --timeout=120s
+kubectl rollout status deployment/ui-${ROUTE} -n "${NAMESPACE}" --timeout=120s
