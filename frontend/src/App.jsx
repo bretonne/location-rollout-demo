@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import './App.css';
 
 const MACHINE_ID = import.meta.env.VITE_MACHINE_ID || "store-001-kiosk-1";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
@@ -7,12 +8,7 @@ export default function App() {
   const [profile, setProfile] = useState(null);
   const [helloHtml, setHelloHtml] = useState("");
   const [ts, setTs] = useState(Date.now());
-  const [isInIframe, setIsInIframe] = useState(false);
   const prevRoute = useRef(null);
-
-  useEffect(() => {
-    setIsInIframe(window.self !== window.top);
-  }, []);
 
   const fetchProfile = async () => {
     try {
@@ -56,34 +52,25 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (isInIframe) return;
     fetchProfile(); // Initial fetch
     const id = setInterval(fetchProfile, 900_000); // Every 15 minutes
     return () => clearInterval(id);
-  }, [isInIframe]);
+  }, []);
 
-  if (isInIframe) {
-    // Render static content without fetches
-    return (
-      <div style={{ fontFamily: "system-ui", padding: 16 }}>
-        <h1>Hello from Assigned Route: {profile?.softwareRoute ?? "Unknown"}</h1>
-        <p><b>Machine:</b> {MACHINE_ID}</p>
-      </div>
-    );
-  }
+  const routeClass = profile?.softwareRoute ? `${profile.softwareRoute}-background` : '';
 
   return (
-    <div style={{ fontFamily: "system-ui", padding: 16 }}>
+    <div className={`app ${routeClass}`}>
       <h1>Location-Aware Rollout Demo</h1>
       <p><b>Machine:</b> {MACHINE_ID}</p>
       <p><b>Assigned Route:</b> {profile?.softwareRoute ?? "(loading...)"}</p>
       <button onClick={fetchProfile}>Refresh Profile</button>{" "}
       <button onClick={fetchHello} disabled={!profile}>Fetch Hello (via Istio)</button>
-      <p style={{ opacity: 0.7, fontSize: 12 }}>
+      <p className="last-fetch">
         Last fetch: {new Date(ts).toLocaleTimeString()}
       </p>
       <div
-        style={{ border: "1px solid #ddd", borderRadius: 8, padding: 16 }}
+        className="hello-container"
         dangerouslySetInnerHTML={{ __html: helloHtml }}
       />
     </div>
