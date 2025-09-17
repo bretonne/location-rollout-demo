@@ -20,8 +20,13 @@ export default function App() {
       const p = await res.json();
       setProfile(p);
 
-      // Fetch hello only if softwareRoute changed or is initial fetch
+      // If softwareRoute changed, force reload to fetch new UI version
       if (p.softwareRoute && p.softwareRoute !== prevRoute.current) {
+        if (prevRoute.current !== null) {
+          console.log(`Route changed from ${prevRoute.current} to ${p.softwareRoute}, forcing reload...`);
+          window.location.reload(true);
+          return;
+        }
         await fetchHello();
         prevRoute.current = p.softwareRoute;
       }
@@ -57,7 +62,7 @@ export default function App() {
     return () => clearInterval(id);
   }, []);
 
-  const routeClass = profile?.softwareRoute ? `${profile.softwareRoute}-background` : '';
+  const routeClass = 'v1-background` : '';
 
   return (
     <div className={`app ${routeClass}`}>
