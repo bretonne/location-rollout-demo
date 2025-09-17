@@ -65,7 +65,7 @@ def get_profile(machineId: str):
     if machineId not in data.get("machines", {}):
         logger.warning("get_profile: machine not found %s", machineId)
         raise HTTPException(404, "machine not found")
-    logger.debug("get_profile: returning profile for %s", machineId)
+    logger.debug("get_profile: returning profile for %s: %s", machineId, data.get("machines").get(machineId).get("softwareRoute"))
     return data["machines"][machineId]
 
 @app.post("/api/profile/set")

@@ -73,3 +73,13 @@ spec:
             port:
               number: 80
 
+    # Default catch-all route for unmatched requests (e.g., root / without header) to v1
+    - match:
+        - uri:
+            prefix: "/"
+      route:
+        - destination:
+            host: ui
+            subset: v1
+            port:
+              number: 80

@@ -1,23 +1,27 @@
-# Use Node.js 18 as the base image
-FROM node:18
+# Stage 1: Build the React app
+FROM node:18 AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if exists)
+# Copy package files and install dependencies
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the application files
+# Copy source code and build
 COPY . .
-
-# Build the application
 RUN npm run build
 
-# Expose port for preview (optional, for running the app)
-EXPOSE 4173
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
 
-# Command to serve the built app
-CMD ["npm", "run", "preview"]
+# Copy built assets from build stage
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copy custom Nginx config for SPA routing
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Nginx runs by default
+CMD ["nginx", "-g", "daemon off;"]
