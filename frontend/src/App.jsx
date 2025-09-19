@@ -20,11 +20,26 @@ export default function App() {
       const p = await res.json();
       setProfile(p);
 
-      // If softwareRoute changed, force reload to fetch new UI version
+      // If softwareRoute changed, fetch the new UI version with header and replace document
       if (p.softwareRoute && p.softwareRoute !== prevRoute.current) {
         if (prevRoute.current !== null) {
-          console.log(`Route changed from ${prevRoute.current} to ${p.softwareRoute}, forcing reload...`);
-          window.location.reload(true);
+          console.log(`Route changed from ${prevRoute.current} to ${p.softwareRoute}, fetching new UI version...`);
+          try {
+            const uiRes = await fetch('/', {
+              headers: { 'x-software-route': p.softwareRoute },
+              cache: 'no-store'  // Force no cache, similar to hard reload
+            });
+            if (!uiRes.ok) {
+              console.error(`Failed to fetch new UI: ${uiRes.status}`);
+              return;
+            }
+            const html = await uiRes.text();
+            document.open();
+            document.write(html);
+            document.close();
+          } catch (error) {
+            console.error("Error fetching new UI:", error);
+          }
           return;
         }
         await fetchHello();
@@ -62,7 +77,7 @@ export default function App() {
     return () => clearInterval(id);
   }, []);
 
-  const routeClass = 'v1-background` : '';
+  const routeClass = `v1-background`;
 
   return (
     <div className={`app ${routeClass}`}>
