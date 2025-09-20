@@ -61,7 +61,6 @@ spec:
             subset: v1
             port:
               number: 80
-
     - match:
         - headers:
             x-software-route:
@@ -72,7 +71,6 @@ spec:
             subset: v2
             port:
               number: 80
-
     # Default catch-all route for unmatched requests (e.g., root / without header) to v1
     - match:
         - uri:

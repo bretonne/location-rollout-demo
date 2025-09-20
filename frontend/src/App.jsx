@@ -6,7 +6,6 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 export default function App() {
   const [profile, setProfile] = useState(null);
-  const [helloHtml, setHelloHtml] = useState("");
   const [ts, setTs] = useState(Date.now());
   const prevRoute = useRef(null);
 
@@ -20,29 +19,15 @@ export default function App() {
       const p = await res.json();
       setProfile(p);
 
-      // If softwareRoute changed, fetch the new UI version with header and replace document
+      // If softwareRoute changed, reload the app to get the new version with header
       if (p.softwareRoute && p.softwareRoute !== prevRoute.current) {
         if (prevRoute.current !== null) {
-          console.log(`Route changed from ${prevRoute.current} to ${p.softwareRoute}, fetching new UI version...`);
-          try {
-            const uiRes = await fetch('/', {
-              headers: { 'x-software-route': p.softwareRoute },
-              cache: 'no-store'  // Force no cache, similar to hard reload
-            });
-            if (!uiRes.ok) {
-              console.error(`Failed to fetch new UI: ${uiRes.status}`);
-              return;
-            }
-            const html = await uiRes.text();
-            document.open();
-            document.write(html);
-            document.close();
-          } catch (error) {
-            console.error("Error fetching new UI:", error);
-          }
+          console.log(`Route changed from ${prevRoute.current} to ${p.softwareRoute}, reloading app...`);
+          // Store new route in sessionStorage before reload
+          sessionStorage.setItem('softwareRoute', p.softwareRoute);
+          window.location.reload(true);
           return;
         }
-        await fetchHello();
         prevRoute.current = p.softwareRoute;
       }
     } catch (error) {
@@ -50,49 +35,31 @@ export default function App() {
     }
   };
 
-  const fetchHello = async () => {
-    if (!profile?.softwareRoute) {
-      console.warn("No softwareRoute, skipping fetchHello");
-      return;
-    }
-    try {
-      const res = await fetch("/hello", {
-        headers: { "x-software-route": profile.softwareRoute }
-      });
-      if (!res.ok) {
-        console.error(`fetchHello failed: ${res.status}`);
-        return;
-      }
-      const text = await res.text();
-      setHelloHtml(text);
-      setTs(Date.now());
-    } catch (error) {
-      console.error("fetchHello error:", error);
-    }
-  };
-
   useEffect(() => {
+    // Check if we have a stored route from previous session (post-reload)
+    const storedRoute = sessionStorage.getItem('softwareRoute');
+    if (storedRoute && !prevRoute.current) {
+      prevRoute.current = storedRoute;
+      setProfile({ softwareRoute: storedRoute });
+      sessionStorage.removeItem('softwareRoute'); // Clear after use
+    }
+
     fetchProfile(); // Initial fetch
     const id = setInterval(fetchProfile, 900_000); // Every 15 minutes
     return () => clearInterval(id);
   }, []);
 
-  const routeClass = `v1-background`;
+  const routeClass = 'v1-background'
 
   return (
     <div className={`app ${routeClass}`}>
       <h1>Location-Aware Rollout Demo</h1>
       <p><b>Machine:</b> {MACHINE_ID}</p>
       <p><b>Assigned Route:</b> {profile?.softwareRoute ?? "(loading...)"}</p>
-      <button onClick={fetchProfile}>Refresh Profile</button>{" "}
-      <button onClick={fetchHello} disabled={!profile}>Fetch Hello (via Istio)</button>
+      <button onClick={fetchProfile}>Refresh Profile</button>
       <p className="last-fetch">
         Last fetch: {new Date(ts).toLocaleTimeString()}
       </p>
-      <div
-        className="hello-container"
-        dangerouslySetInnerHTML={{ __html: helloHtml }}
-      />
     </div>
   );
 }
