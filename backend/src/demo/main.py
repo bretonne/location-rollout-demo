@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import Dict, Any
+from typing import Dict, Any, List
 import json, threading, os
 import logging
 import sys
@@ -58,27 +58,33 @@ def save_data(data: Dict[str, Any]):
             logger.exception("save_data: error writing to %s", DATA_PATH)
             raise
 
-def get_cached_data() -> Dict[str, Any]:
-    """Get data from cache, reloading from file if needed."""
-    global _cached_data, _last_reload  # Declare both globals at the start
+def reload_cache():
+    """Reload the cache from file."""
+    global _cached_data, _last_reload
+    try:
+        new_data = load_data_from_file()
+        with _cache_lock:
+            _cached_data = new_data
+            _last_reload = time.time()
+        logger.info("reload_cache: successfully reloaded data from file at %s", datetime.fromtimestamp(time.time()))
+    except Exception as e:
+        logger.error("reload_cache: failed to reload from file: %s", str(e))
 
-    current_time = time.time()
-    should_reload = (current_time - _last_reload) >= RELOAD_INTERVAL
+def background_reloader():
+    """Background thread to reload cache every RELOAD_INTERVAL seconds."""
+    while True:
+        time.sleep(RELOAD_INTERVAL)
+        logger.debug("background_reloader: triggering cache reload")
+        reload_cache()
+
+def get_cached_data() -> Dict[str, Any]:
+    """Get data from cache. The background thread ensures it's up to date."""
+    global _cached_data, _last_reload
 
     with _cache_lock:
-        if _cached_data is None or should_reload:
-            logger.debug("get_cached_data: cache miss or reload needed, loading from file")
-            try:
-                _cached_data = load_data_from_file()
-                _last_reload = current_time
-                logger.info("get_cached_data: successfully reloaded data from file at %s", datetime.fromtimestamp(current_time))
-            except Exception as e:
-                logger.error("get_cached_data: failed to reload from file: %s", str(e))
-                # If we can't load fresh data, return cached data if available
-                if _cached_data is None:
-                    raise
-                else:
-                    logger.warning("get_cached_data: using stale cached data due to reload failure")
+        if _cached_data is None:
+            logger.debug("get_cached_data: cache is None, loading from file")
+            reload_cache()
 
         return _cached_data.copy()  # Return a copy to prevent external modification
 
@@ -104,10 +110,19 @@ class SetField(BaseModel):
     fieldName: str
     fieldValue: Any
 
+class UpdateProfilesRequest(BaseModel):
+    machineIds: List[str]
+    fieldName: str
+    fieldValue: Any
+
 @app.on_event("startup")
 async def startup_event():
-    """Initialize cache on application startup."""
+    """Initialize cache and start background reloader on application startup."""
     initialize_cache()
+    # Start background reloader thread
+    reloader_thread = threading.Thread(target=background_reloader, daemon=True)
+    reloader_thread.start()
+    logger.info("startup_event: background reloader thread started")
 
 @app.get("/api/machines")
 def get_all():
@@ -133,7 +148,7 @@ def set_profile_field(req: SetField):
     logger.info("POST /api/profile/set called machineId=%s fieldName=%s", req.machineId, req.fieldName)
     logger.debug("POST /api/profile/set payload=%s", req.dict())
 
-    # Get current data (this will reload if needed)
+    # Get current data from cache
     data = get_cached_data()
 
     if req.machineId not in data.get("machines", {}):
@@ -147,6 +162,47 @@ def set_profile_field(req: SetField):
     save_data(data)
     logger.info("set_profile_field: updated machine %s field %s", req.machineId, req.fieldName)
     return {"ok": True}
+
+@app.post("/api/profile/update_profiles")
+def update_profiles(req: UpdateProfilesRequest):
+    """
+    Bulk update multiple machine profiles with the same field and value.
+    Updates both the data.json file and the internal cache.
+    """
+    logger.info("POST /api/profile/update_profiles called fieldName=%s for %d machines", req.fieldName, len(req.machineIds))
+    logger.debug("POST /api/profile/update_profiles payload=%s", req.dict())
+
+    # Get current data from cache
+    data = get_cached_data()
+    machines = data.get("machines", {})
+
+    if not machines:
+        logger.error("update_profiles: no machines found in data")
+        raise HTTPException(500, "No machines found in data")
+
+    updated_count = 0
+    not_found_count = 0
+
+    # Update each machine
+    for machine_id in req.machineIds:
+        if machine_id in machines:
+            logger.debug("update_profiles: setting %s=%s for machine %s", req.fieldName, req.fieldValue, machine_id)
+            machines[machine_id][req.fieldName] = req.fieldValue
+            updated_count += 1
+        else:
+            logger.warning("update_profiles: machine not found %s", machine_id)
+            not_found_count += 1
+
+    # Save to file and update cache
+    save_data(data)
+    logger.info("update_profiles: completed. Updated %d machines, %d not found", updated_count, not_found_count)
+
+    return {
+        "ok": True,
+        "updated_count": updated_count,
+        "not_found_count": not_found_count,
+        "total_requested": len(req.machineIds)
+    }
 
 @app.get("/api/cache/status")
 def get_cache_status():

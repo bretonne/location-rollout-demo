@@ -22,7 +22,7 @@
     },
     "store-001-machine-6": {
       "storeId": "store-001",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-002-machine-1": {
       "storeId": "store-002",
@@ -50,7 +50,7 @@
     },
     "store-002-machine-7": {
       "storeId": "store-002",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-003-machine-1": {
       "storeId": "store-003",
@@ -74,7 +74,7 @@
     },
     "store-003-machine-6": {
       "storeId": "store-003",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-004-machine-1": {
       "storeId": "store-004",
@@ -102,7 +102,7 @@
     },
     "store-004-machine-7": {
       "storeId": "store-004",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-005-machine-1": {
       "storeId": "store-005",
@@ -126,7 +126,7 @@
     },
     "store-005-machine-6": {
       "storeId": "store-005",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-006-machine-1": {
       "storeId": "store-006",
@@ -154,7 +154,7 @@
     },
     "store-006-machine-7": {
       "storeId": "store-006",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-007-machine-1": {
       "storeId": "store-007",
@@ -178,7 +178,7 @@
     },
     "store-007-machine-6": {
       "storeId": "store-007",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-008-machine-1": {
       "storeId": "store-008",
@@ -206,7 +206,7 @@
     },
     "store-008-machine-7": {
       "storeId": "store-008",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-009-machine-1": {
       "storeId": "store-009",
@@ -230,7 +230,7 @@
     },
     "store-009-machine-6": {
       "storeId": "store-009",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-010-machine-1": {
       "storeId": "store-010",
@@ -258,7 +258,7 @@
     },
     "store-010-machine-7": {
       "storeId": "store-010",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-011-machine-1": {
       "storeId": "store-011",
@@ -282,7 +282,7 @@
     },
     "store-011-machine-6": {
       "storeId": "store-011",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-012-machine-1": {
       "storeId": "store-012",
@@ -310,7 +310,7 @@
     },
     "store-012-machine-7": {
       "storeId": "store-012",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-013-machine-1": {
       "storeId": "store-013",
@@ -334,7 +334,7 @@
     },
     "store-013-machine-6": {
       "storeId": "store-013",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-014-machine-1": {
       "storeId": "store-014",
@@ -362,7 +362,7 @@
     },
     "store-014-machine-7": {
       "storeId": "store-014",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-015-machine-1": {
       "storeId": "store-015",
@@ -386,7 +386,7 @@
     },
     "store-015-machine-6": {
       "storeId": "store-015",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-016-machine-1": {
       "storeId": "store-016",
@@ -410,7 +410,7 @@
     },
     "store-016-machine-6": {
       "storeId": "store-016",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-017-machine-1": {
       "storeId": "store-017",
@@ -438,7 +438,7 @@
     },
     "store-017-machine-7": {
       "storeId": "store-017",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-018-machine-1": {
       "storeId": "store-018",
@@ -462,7 +462,7 @@
     },
     "store-018-machine-6": {
       "storeId": "store-018",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-019-machine-1": {
       "storeId": "store-019",
@@ -490,7 +490,7 @@
     },
     "store-019-machine-7": {
       "storeId": "store-019",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-020-machine-1": {
       "storeId": "store-020",
@@ -514,7 +514,7 @@
     },
     "store-020-machine-6": {
       "storeId": "store-020",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-021-machine-1": {
       "storeId": "store-021",
@@ -538,7 +538,7 @@
     },
     "store-021-machine-6": {
       "storeId": "store-021",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-022-machine-1": {
       "storeId": "store-022",
@@ -566,7 +566,7 @@
     },
     "store-022-machine-7": {
       "storeId": "store-022",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-023-machine-1": {
       "storeId": "store-023",
@@ -590,7 +590,7 @@
     },
     "store-023-machine-6": {
       "storeId": "store-023",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-024-machine-1": {
       "storeId": "store-024",
@@ -618,7 +618,7 @@
     },
     "store-024-machine-7": {
       "storeId": "store-024",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-025-machine-1": {
       "storeId": "store-025",
@@ -642,7 +642,7 @@
     },
     "store-025-machine-6": {
       "storeId": "store-025",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-026-machine-1": {
       "storeId": "store-026",
@@ -670,7 +670,7 @@
     },
     "store-026-machine-7": {
       "storeId": "store-026",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-027-machine-1": {
       "storeId": "store-027",
@@ -694,7 +694,7 @@
     },
     "store-027-machine-6": {
       "storeId": "store-027",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-028-machine-1": {
       "storeId": "store-028",
@@ -722,7 +722,7 @@
     },
     "store-028-machine-7": {
       "storeId": "store-028",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-029-machine-1": {
       "storeId": "store-029",
@@ -746,7 +746,7 @@
     },
     "store-029-machine-6": {
       "storeId": "store-029",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     },
     "store-030-machine-1": {
       "storeId": "store-030",
@@ -770,7 +770,7 @@
     },
     "store-030-machine-6": {
       "storeId": "store-030",
-      "softwareRoute": "v1"
+      "softwareRoute": "v2"
     }
   }
 }
