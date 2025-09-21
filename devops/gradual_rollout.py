@@ -10,8 +10,8 @@ def main():
     parser = argparse.ArgumentParser(description="Gradual rollout of software route updates via API.")
     parser.add_argument("--percent", required=True, help="The target percentage for the rollout phase.")
     parser.add_argument("--route", required=True, help="The new software route (e.g., v2).")
-    parser.add_argument("--api-url", default="http://demo.local:8080",
-                        help="The API base URL (default: http://demo.local:8080)")
+    parser.add_argument("--api-url", default="http://localhost:8000",
+                        help="The API base URL (default: http://localhost:8000)")
     args = parser.parse_args()
 
     try:
@@ -61,6 +61,7 @@ def main():
 
         machines_to_update = []
         updated_count = 0
+        store_update_summary = defaultdict(list)  # Track which machines per store
 
         # For each store, identify machines to update
         for store, mach_list in store_machines.items():
@@ -84,9 +85,10 @@ def main():
 
                 # Add the first 'to_update' machines to update list
                 for i in range(min(to_update, len(old_machines))):
-                    machines_to_update.append(old_machines[i])
+                    machine_id = old_machines[i]
+                    machines_to_update.append(machine_id)
+                    store_update_summary[store].append(machine_id)
                     updated_count += 1
-                    print(f"Will update {old_machines[i]} in store {store} to {new_route}")
             else:
                 print(f"Store {store}: Already at or above {percent}% target")
 
@@ -94,8 +96,15 @@ def main():
             print("No machines need to be updated for this phase.")
             return 0
 
+        # Print summary of machines to be updated
+        print(f"\nMachines to update by store:")
+        for store, machine_list in store_update_summary.items():
+            print(f"  Store {store}: {len(machine_list)} machines - {', '.join(machine_list)}")
+
+        print(f"\nTotal machines to update: {len(machines_to_update)}")
+
         # Make bulk update request to API
-        print(f"\nUpdating {len(machines_to_update)} machines via API...")
+        print(f"Making API call to update {len(machines_to_update)} machines...")
         update_payload = {
             "machineIds": machines_to_update,
             "fieldName": "softwareRoute",
