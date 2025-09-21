@@ -2,775 +2,775 @@
   "machines": {
     "store-001-machine-1": {
       "storeId": "store-001",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-001-machine-2": {
       "storeId": "store-001",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-001-machine-3": {
       "storeId": "store-001",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-001-machine-4": {
       "storeId": "store-001",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-001-machine-5": {
       "storeId": "store-001",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-001-machine-6": {
       "storeId": "store-001",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-002-machine-1": {
       "storeId": "store-002",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-002-machine-2": {
       "storeId": "store-002",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-002-machine-3": {
       "storeId": "store-002",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-002-machine-4": {
       "storeId": "store-002",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-002-machine-5": {
       "storeId": "store-002",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-002-machine-6": {
       "storeId": "store-002",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-002-machine-7": {
       "storeId": "store-002",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-003-machine-1": {
       "storeId": "store-003",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-003-machine-2": {
       "storeId": "store-003",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-003-machine-3": {
       "storeId": "store-003",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-003-machine-4": {
       "storeId": "store-003",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-003-machine-5": {
       "storeId": "store-003",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-003-machine-6": {
       "storeId": "store-003",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-004-machine-1": {
       "storeId": "store-004",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-004-machine-2": {
       "storeId": "store-004",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-004-machine-3": {
       "storeId": "store-004",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-004-machine-4": {
       "storeId": "store-004",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-004-machine-5": {
       "storeId": "store-004",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-004-machine-6": {
       "storeId": "store-004",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-004-machine-7": {
       "storeId": "store-004",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-005-machine-1": {
       "storeId": "store-005",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-005-machine-2": {
       "storeId": "store-005",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-005-machine-3": {
       "storeId": "store-005",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-005-machine-4": {
       "storeId": "store-005",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-005-machine-5": {
       "storeId": "store-005",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-005-machine-6": {
       "storeId": "store-005",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-006-machine-1": {
       "storeId": "store-006",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-006-machine-2": {
       "storeId": "store-006",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-006-machine-3": {
       "storeId": "store-006",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-006-machine-4": {
       "storeId": "store-006",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-006-machine-5": {
       "storeId": "store-006",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-006-machine-6": {
       "storeId": "store-006",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-006-machine-7": {
       "storeId": "store-006",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-007-machine-1": {
       "storeId": "store-007",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-007-machine-2": {
       "storeId": "store-007",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-007-machine-3": {
       "storeId": "store-007",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-007-machine-4": {
       "storeId": "store-007",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-007-machine-5": {
       "storeId": "store-007",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-007-machine-6": {
       "storeId": "store-007",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-008-machine-1": {
       "storeId": "store-008",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-008-machine-2": {
       "storeId": "store-008",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-008-machine-3": {
       "storeId": "store-008",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-008-machine-4": {
       "storeId": "store-008",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-008-machine-5": {
       "storeId": "store-008",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-008-machine-6": {
       "storeId": "store-008",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-008-machine-7": {
       "storeId": "store-008",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-009-machine-1": {
       "storeId": "store-009",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-009-machine-2": {
       "storeId": "store-009",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-009-machine-3": {
       "storeId": "store-009",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-009-machine-4": {
       "storeId": "store-009",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-009-machine-5": {
       "storeId": "store-009",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-009-machine-6": {
       "storeId": "store-009",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-010-machine-1": {
       "storeId": "store-010",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-010-machine-2": {
       "storeId": "store-010",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-010-machine-3": {
       "storeId": "store-010",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-010-machine-4": {
       "storeId": "store-010",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-010-machine-5": {
       "storeId": "store-010",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-010-machine-6": {
       "storeId": "store-010",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-010-machine-7": {
       "storeId": "store-010",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-011-machine-1": {
       "storeId": "store-011",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-011-machine-2": {
       "storeId": "store-011",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-011-machine-3": {
       "storeId": "store-011",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-011-machine-4": {
       "storeId": "store-011",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-011-machine-5": {
       "storeId": "store-011",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-011-machine-6": {
       "storeId": "store-011",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-012-machine-1": {
       "storeId": "store-012",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-012-machine-2": {
       "storeId": "store-012",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-012-machine-3": {
       "storeId": "store-012",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-012-machine-4": {
       "storeId": "store-012",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-012-machine-5": {
       "storeId": "store-012",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-012-machine-6": {
       "storeId": "store-012",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-012-machine-7": {
       "storeId": "store-012",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-013-machine-1": {
       "storeId": "store-013",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-013-machine-2": {
       "storeId": "store-013",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-013-machine-3": {
       "storeId": "store-013",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-013-machine-4": {
       "storeId": "store-013",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-013-machine-5": {
       "storeId": "store-013",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-013-machine-6": {
       "storeId": "store-013",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-014-machine-1": {
       "storeId": "store-014",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-014-machine-2": {
       "storeId": "store-014",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-014-machine-3": {
       "storeId": "store-014",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-014-machine-4": {
       "storeId": "store-014",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-014-machine-5": {
       "storeId": "store-014",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-014-machine-6": {
       "storeId": "store-014",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-014-machine-7": {
       "storeId": "store-014",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-015-machine-1": {
       "storeId": "store-015",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-015-machine-2": {
       "storeId": "store-015",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-015-machine-3": {
       "storeId": "store-015",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-015-machine-4": {
       "storeId": "store-015",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-015-machine-5": {
       "storeId": "store-015",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-015-machine-6": {
       "storeId": "store-015",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-016-machine-1": {
       "storeId": "store-016",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-016-machine-2": {
       "storeId": "store-016",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-016-machine-3": {
       "storeId": "store-016",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-016-machine-4": {
       "storeId": "store-016",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-016-machine-5": {
       "storeId": "store-016",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-016-machine-6": {
       "storeId": "store-016",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-017-machine-1": {
       "storeId": "store-017",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-017-machine-2": {
       "storeId": "store-017",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-017-machine-3": {
       "storeId": "store-017",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-017-machine-4": {
       "storeId": "store-017",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-017-machine-5": {
       "storeId": "store-017",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-017-machine-6": {
       "storeId": "store-017",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-017-machine-7": {
       "storeId": "store-017",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-018-machine-1": {
       "storeId": "store-018",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-018-machine-2": {
       "storeId": "store-018",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-018-machine-3": {
       "storeId": "store-018",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-018-machine-4": {
       "storeId": "store-018",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-018-machine-5": {
       "storeId": "store-018",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-018-machine-6": {
       "storeId": "store-018",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-019-machine-1": {
       "storeId": "store-019",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-019-machine-2": {
       "storeId": "store-019",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-019-machine-3": {
       "storeId": "store-019",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-019-machine-4": {
       "storeId": "store-019",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-019-machine-5": {
       "storeId": "store-019",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-019-machine-6": {
       "storeId": "store-019",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-019-machine-7": {
       "storeId": "store-019",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-020-machine-1": {
       "storeId": "store-020",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-020-machine-2": {
       "storeId": "store-020",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-020-machine-3": {
       "storeId": "store-020",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-020-machine-4": {
       "storeId": "store-020",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-020-machine-5": {
       "storeId": "store-020",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-020-machine-6": {
       "storeId": "store-020",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-021-machine-1": {
       "storeId": "store-021",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-021-machine-2": {
       "storeId": "store-021",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-021-machine-3": {
       "storeId": "store-021",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-021-machine-4": {
       "storeId": "store-021",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-021-machine-5": {
       "storeId": "store-021",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-021-machine-6": {
       "storeId": "store-021",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-022-machine-1": {
       "storeId": "store-022",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-022-machine-2": {
       "storeId": "store-022",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-022-machine-3": {
       "storeId": "store-022",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-022-machine-4": {
       "storeId": "store-022",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-022-machine-5": {
       "storeId": "store-022",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-022-machine-6": {
       "storeId": "store-022",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-022-machine-7": {
       "storeId": "store-022",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-023-machine-1": {
       "storeId": "store-023",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-023-machine-2": {
       "storeId": "store-023",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-023-machine-3": {
       "storeId": "store-023",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-023-machine-4": {
       "storeId": "store-023",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-023-machine-5": {
       "storeId": "store-023",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-023-machine-6": {
       "storeId": "store-023",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-024-machine-1": {
       "storeId": "store-024",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-024-machine-2": {
       "storeId": "store-024",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-024-machine-3": {
       "storeId": "store-024",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-024-machine-4": {
       "storeId": "store-024",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-024-machine-5": {
       "storeId": "store-024",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-024-machine-6": {
       "storeId": "store-024",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-024-machine-7": {
       "storeId": "store-024",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-025-machine-1": {
       "storeId": "store-025",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-025-machine-2": {
       "storeId": "store-025",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-025-machine-3": {
       "storeId": "store-025",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-025-machine-4": {
       "storeId": "store-025",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-025-machine-5": {
       "storeId": "store-025",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-025-machine-6": {
       "storeId": "store-025",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-026-machine-1": {
       "storeId": "store-026",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-026-machine-2": {
       "storeId": "store-026",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-026-machine-3": {
       "storeId": "store-026",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-026-machine-4": {
       "storeId": "store-026",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-026-machine-5": {
       "storeId": "store-026",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-026-machine-6": {
       "storeId": "store-026",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-026-machine-7": {
       "storeId": "store-026",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-027-machine-1": {
       "storeId": "store-027",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-027-machine-2": {
       "storeId": "store-027",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-027-machine-3": {
       "storeId": "store-027",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-027-machine-4": {
       "storeId": "store-027",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-027-machine-5": {
       "storeId": "store-027",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-027-machine-6": {
       "storeId": "store-027",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-028-machine-1": {
       "storeId": "store-028",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-028-machine-2": {
       "storeId": "store-028",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-028-machine-3": {
       "storeId": "store-028",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-028-machine-4": {
       "storeId": "store-028",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-028-machine-5": {
       "storeId": "store-028",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-028-machine-6": {
       "storeId": "store-028",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-028-machine-7": {
       "storeId": "store-028",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-029-machine-1": {
       "storeId": "store-029",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-029-machine-2": {
       "storeId": "store-029",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-029-machine-3": {
       "storeId": "store-029",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-029-machine-4": {
       "storeId": "store-029",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-029-machine-5": {
       "storeId": "store-029",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-029-machine-6": {
       "storeId": "store-029",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-030-machine-1": {
       "storeId": "store-030",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-030-machine-2": {
       "storeId": "store-030",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-030-machine-3": {
       "storeId": "store-030",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-030-machine-4": {
       "storeId": "store-030",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-030-machine-5": {
       "storeId": "store-030",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     },
     "store-030-machine-6": {
       "storeId": "store-030",
-      "softwareRoute": "v2"
+      "softwareRoute": "v1"
     }
   }
 }
