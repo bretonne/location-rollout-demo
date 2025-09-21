@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ui
+  name: ui-${ROUTE}
   namespace: kubecon-demo
   labels:
     app: ui
@@ -12,6 +12,7 @@ spec:
   selector:
     matchLabels:
       app: ui
+      route: "${ROUTE}"
   template:
     metadata:
       labels:
