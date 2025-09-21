@@ -4,12 +4,12 @@
     "store-001-kiosk-2": { "storeId": "store-001", "softwareRoute": "v1" },
     "store-002-kiosk-1": { "storeId": "store-002", "softwareRoute": "v1" },
     "store-002-kiosk-2": { "storeId": "store-002", "softwareRoute": "v2" },
-    "store-003-kiosk-1": { "storeId": "store-003", "softwareRoute": "v1" },
-    "store-003-kiosk-2": { "storeId": "store-001", "softwareRoute": "v2" },
-    "store-003-kiosk-3": { "storeId": "store-001", "softwareRoute": "v1" },
-    "store-003-kiosk-4": { "storeId": "store-002", "softwareRoute": "v2" },
-    "store-003-kiosk-5": { "storeId": "store-002", "softwareRoute": "v1" },
-    "store-003-kiosk-6": { "storeId": "store-003", "softwareRoute": "v2" }
+    "store-003-kiosk-1": { "storeId": "store-003", "softwareRoute": "v2" },
+    "store-003-kiosk-2": { "storeId": "store-001", "softwareRoute": "v1" },
+    "store-003-kiosk-3": { "storeId": "store-001", "softwareRoute": "v2" },
+    "store-003-kiosk-4": { "storeId": "store-002", "softwareRoute": "v1" },
+    "store-003-kiosk-5": { "storeId": "store-002", "softwareRoute": "v2" },
+    "store-003-kiosk-6": { "storeId": "store-003", "softwareRoute": "v1" }
 
   }
 }
