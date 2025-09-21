@@ -97,7 +97,7 @@ export default function App() {
     return () => clearInterval(id);
   }, []);
 
-  const routeClass = 'v2-background';
+  const routeClass = 'v1-background';
 
   return (
     <div className={`app ${routeClass}`}>
