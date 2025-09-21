@@ -7,11 +7,19 @@ export default function App() {
   const [profile, setProfile] = useState(null);
   const [ts, setTs] = useState(Date.now());
   const prevRoute = useRef(null);
+  const isLoadingNewVersion = useRef(false);
 
   const machineId = window.location.pathname.replace(/^\//, '') || "store-001-kiosk-1";
 
   const fetchProfile = async () => {
+      // Prevent fetch during version loading
+      if (isLoadingNewVersion.current) {
+        console.log("Skipping fetch during version load");
+        return;
+      }
+
     try {
+      console.log(`Fetching profile for ${machineId}, current route: ${prevRoute.current}`);
       const res = await fetch(`${API_BASE_URL}/api/profile?machineId=${machineId}`);
       if (!res.ok) {
         console.error(`fetchProfile failed: ${res.status}`);
@@ -37,10 +45,19 @@ export default function App() {
   };
 
   const loadNewVersion = async (route) => {
+    if (isLoadingNewVersion.current) {
+      console.log("Already loading version, skipping");
+      return;
+    }
+
+    isLoadingNewVersion.current = true;
+    console.log(`Loading new version for route: ${targetRoute}`);
+
     const headers = { "x-software-route": route };
     const res = await fetch(window.location.origin, { headers });  // Fetch root, assuming SPA at /
     if (!res.ok) {
       console.error("Failed to fetch new HTML");
+      isLoadingNewVersion.current = false;
       return;
     }
     let html = await res.text();
@@ -77,6 +94,7 @@ export default function App() {
             console.error(`Failed to fetch asset: ${asset.url}`);
           }
         } catch (err) {
+          isLoadingNewVersion.current = false;
           console.error(`Error fetching asset ${asset.url}:`, err);
         }
       })
@@ -89,6 +107,7 @@ export default function App() {
     document.open();
     document.write(html);
     document.close();
+     isLoadingNewVersion.current = false
   };
 
   useEffect(() => {
@@ -97,14 +116,14 @@ export default function App() {
     return () => clearInterval(id);
   }, []);
 
-  const routeClass = 'v1-background';
+  const routeClass = 'v2-background';
 
   return (
     <div className={`app ${routeClass}`}>
       <h1>Location-Aware Rollout Demo</h1>
       <p><b>Machine:</b> {machineId}</p>
       <p><b>Assigned Route:</b> {profile?.softwareRoute ?? "(loading...)"}</p>
-      <button onClick={fetchProfile}>Refresh Profile</button>
+      <button onClick={fetchProfile} disabled={isLoadingNewVersion.current}>Refresh Profile</button>
       <p className="last-fetch">
         Last fetch: {new Date(ts).toLocaleTimeString()}
       </p>
