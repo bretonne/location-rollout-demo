@@ -167,7 +167,7 @@ export default function App() {
     return () => clearInterval(id);
   }, []);
 
-  const routeClass = profile?.softwareRoute === 'v2' ? 'v2-background' : 'v1-background';
+  const routeClass = 'v1-background';
 
   return (
     <div className={`app ${routeClass}`}>
