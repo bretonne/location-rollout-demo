@@ -111,7 +111,7 @@ def main():
             "fieldValue": new_route
         }
 
-        response = requests.post(f"{api_url}/api/profile/update_profiles", json=update_payload)
+        response = requests.post(f"{api_url}/api/profiles", json=update_payload)
 
         if response.status_code != 200:
             print(f"Error: Failed to update machines via API. Status: {response.status_code}")
