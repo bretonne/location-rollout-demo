@@ -24,7 +24,7 @@
 
 # Demo 1 — Percentage-based rollout
 
-- Use Istio VirtualService weights to split traffic between blue/green.
+- Use Istio VirtualService weights to split traffic between v1/v2.
 - Ideal for random sampling across global traffic.
 - Quick win: change weights to move traffic (e.g., 90/10 → 50/50 → 0/100).
 
@@ -34,8 +34,8 @@ Architecture (simple):
 flowchart LR
   Client -->|HTTP| IstioIngress[Istio Ingress / Gateway]
   IstioIngress --> VS[VirtualService]
-  VS -->|80%| BlueSvc[blue: nginx v1]
-  VS -->|20%| GreenSvc[green: nginx v2]
+  VS -->|80%| V1Svc[v1: nginx v1]
+  VS -->|20%| V2Svc[v2: nginx v2]
 ```
 
 ---
@@ -50,12 +50,12 @@ Example flow diagram:
 
 ```mermaid
 flowchart LR
-  Device[Device / Kiosk] -->|fetch profile| ProfileAPI[Profile API]
-  ProfileAPI -->|returns release=green| Device
-  Device -->|HTTP w/ header x-release: green| IstioIngress
+  Device[Device / Machine] -->|fetch profile| ProfileAPI[Profile API]
+  ProfileAPI -->|returns route=v2| Device
+  Device -->|HTTP w/ header x-route: v2| IstioIngress
   IstioIngress --> VirtualService
-  VirtualService -->|match x-release=green| GreenSvc
-  VirtualService -->|match x-release=blue| BlueSvc
+  VirtualService -->|match x-route=v2| V2Svc
+  VirtualService -->|match x-route=v1| V1Svc
 ```
 
 ---
