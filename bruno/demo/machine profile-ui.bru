@@ -1,0 +1,19 @@
+meta {
+  name: machine profile-ui
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://demo.local:8080/api/profile?machineId=store-003-machine-2
+  body: none
+  auth: inherit
+}
+
+params:query {
+  machineId: store-003-machine-2
+}
+
+settings {
+  encodeUrl: true
+}

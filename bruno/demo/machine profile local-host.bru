@@ -1,0 +1,20 @@
+meta {
+  name: machine profile local-host
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:8080/api/profile?machineId=store-001-machine-1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  machineId: store-001-machine-1
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

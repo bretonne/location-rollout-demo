@@ -9,7 +9,7 @@ export default function App() {
   const prevRoute = useRef(null);
   const isLoadingNewVersion = useRef(false);
 
-  const machineId = window.location.pathname.replace(/^\//, '') || "store-001-kiosk-1";
+  const machineId = window.location.pathname.replace(/^\//, '') || "store-001-machine-1";
 
   const fetchProfile = async () => {
     // Prevent fetch during version loading
@@ -167,7 +167,7 @@ export default function App() {
     return () => clearInterval(id);
   }, []);
 
-  const routeClass = 'v2-background';
+  const routeClass = 'v1-background';
 
   return (
     <div className={`app ${routeClass}`}>

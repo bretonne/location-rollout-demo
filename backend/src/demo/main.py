@@ -143,10 +143,10 @@ def get_profile(machineId: str):
                  machineId, data.get("machines").get(machineId).get("softwareRoute"))
     return data["machines"][machineId]
 
-@app.post("/api/profile/set")
+@app.post("/api/profile/field")
 def set_profile_field(req: SetField):
-    logger.info("POST /api/profile/set called machineId=%s fieldName=%s", req.machineId, req.fieldName)
-    logger.debug("POST /api/profile/set payload=%s", req.dict())
+    logger.info("POST /api/profile/field called machineId=%s fieldName=%s", req.machineId, req.fieldName)
+    logger.debug("POST /api/profile/field payload=%s", req.dict())
 
     # Get current data from cache
     data = get_cached_data()
@@ -163,14 +163,14 @@ def set_profile_field(req: SetField):
     logger.info("set_profile_field: updated machine %s field %s", req.machineId, req.fieldName)
     return {"ok": True}
 
-@app.post("/api/profile/update_profiles")
+@app.post("/api/profiles")
 def update_profiles(req: UpdateProfilesRequest):
     """
     Bulk update multiple machine profiles with the same field and value.
     Updates both the data.json file and the internal cache.
     """
-    logger.info("POST /api/profile/update_profiles called fieldName=%s for %d machines", req.fieldName, len(req.machineIds))
-    logger.debug("POST /api/profile/update_profiles payload=%s", req.dict())
+    logger.info("POST /api/profiles called fieldName=%s for %d machines", req.fieldName, len(req.machineIds))
+    logger.debug("POST /api/profiles payload=%s", req.dict())
 
     # Get current data from cache
     data = get_cached_data()
