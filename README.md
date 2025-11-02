@@ -8,6 +8,16 @@ backend/devops/deploy.sh
 ```bash
 frontend/devops/deploy.sh v1
 ```
+Go to App.jsx and change line 170 background to v2 color and deploy again
+```javascript
+  const routeClass = 'v2-background';
+```
+```bash
+frontend/devops/deploy.sh v2
+```
+
+
+
 
 ```bash
 kubectl apply -f k8s/istio.yaml
@@ -25,7 +35,7 @@ Point Bruno to: http://demo.local:8080/api/machines
 Open http://demo.local:8080/store-001-machine-3
 
 
-Run rollout: 
+# Run rollout: 
 ```aiignore
 ./devops/rollout.sh "20,40,60,80,100" v2
 ```

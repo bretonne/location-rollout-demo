@@ -60,6 +60,23 @@ flowchart LR
 
 ---
 
+# Real-life: Machine profiles stored in a NoSQL DB
+In a production environment, device (machine) profiles are commonly stored in a database (for example a NoSQL DB). The client fetches its profile from the Profile API, which reads/writes the DB. The dashed line in the diagram below indicates the backend DB interaction (not part of the request path to Istio).
+
+```mermaid
+flowchart LR
+  Device[Device / Machine] -->|fetch profile| ProfileAPI[Profile API]
+  %% Profile API interacts with a NoSQL database (dashed line to indicate backend storage)
+  ProfileAPI -.->|reads/writes| NoSQLDB[(NoSQL DB\nmachine profiles)]
+  ProfileAPI -->|returns route=v2| Device
+  Device -->|HTTP w/ header x-route: v2| IstioIngress[Istio Ingress / Gateway]
+  IstioIngress --> VirtualService[VirtualService]
+  VirtualService -->|match x-route=v2| V2Svc[v2: service]
+  VirtualService -->|match x-route=v1| V1Svc[v1: service]
+```
+
+---
+
 # Monitoring & Rollback
 
 - Instrument both versions with metrics and logs.
