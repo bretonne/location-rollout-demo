@@ -39,6 +39,18 @@ flowchart LR
   IstioIngress --> VS[VirtualService]
   VS -->|80%| V1Svc[v1: nginx v1]
   VS -->|20%| V2Svc[v2: nginx v2]
+
+  classDef clientClass fill:#E8F6FF,stroke:#036,stroke-width:1px;
+  classDef ingressClass fill:#C7F9CC,stroke:#2a7a2a,stroke-width:1px;
+  classDef vsClass fill:#FFF2B2,stroke:#b38f00,stroke-width:1px;
+  classDef v1Class fill:#1f77b4,stroke:#0b3a66,color:#ffffff,stroke-width:1px;
+  classDef v2Class fill:#ff7f0e,stroke:#a54e00,color:#ffffff,stroke-width:1px;
+
+  class Client clientClass;
+  class IstioIngress ingressClass;
+  class VS vsClass;
+  class V1Svc v1Class;
+  class V2Svc v2Class;
 ```
 
 ---
@@ -59,6 +71,20 @@ flowchart LR
   IstioIngress --> VirtualService
   VirtualService -->|match x-route=v2| V2Svc
   VirtualService -->|match x-route=v1| V1Svc
+
+  classDef deviceClass fill:#E8F6FF,stroke:#036,stroke-width:1px;
+  classDef apiClass fill:#9467bd,stroke:#5a2f6b,color:#ffffff,stroke-width:1px;
+  classDef ingressClass fill:#C7F9CC,stroke:#2a7a2a,stroke-width:1px;
+  classDef vsClass fill:#FFF2B2,stroke:#b38f00,stroke-width:1px;
+  classDef v1Class fill:#1f77b4,stroke:#0b3a66,color:#ffffff,stroke-width:1px;
+  classDef v2Class fill:#ff7f0e,stroke:#a54e00,color:#ffffff,stroke-width:1px;
+
+  class Device deviceClass;
+  class ProfileAPI apiClass;
+  class IstioIngress ingressClass;
+  class VirtualService vsClass;
+  class V1Svc v1Class;
+  class V2Svc v2Class;
 ```
 
 ---
@@ -76,6 +102,22 @@ flowchart LR
   IstioIngress --> VirtualService[VirtualService]
   VirtualService -->|match x-route=v2| V2Svc[v2: service]
   VirtualService -->|match x-route=v1| V1Svc[v1: service]
+
+  classDef deviceClass fill:#E8F6FF,stroke:#036,stroke-width:1px;
+  classDef apiClass fill:#9467bd,stroke:#5a2f6b,color:#ffffff,stroke-width:1px;
+  classDef dbClass fill:#9e9e9e,stroke:#5a5a5a,color:#ffffff,stroke-width:1px;
+  classDef ingressClass fill:#C7F9CC,stroke:#2a7a2a,stroke-width:1px;
+  classDef vsClass fill:#FFF2B2,stroke:#b38f00,stroke-width:1px;
+  classDef v1Class fill:#1f77b4,stroke:#0b3a66,color:#ffffff,stroke-width:1px;
+  classDef v2Class fill:#ff7f0e,stroke:#a54e00,color:#ffffff,stroke-width:1px;
+
+  class Device deviceClass;
+  class ProfileAPI apiClass;
+  class NoSQLDB dbClass;
+  class IstioIngress ingressClass;
+  class VirtualService vsClass;
+  class V1Svc v1Class;
+  class V2Svc v2Class;
 ```
 
 ---
@@ -83,7 +125,7 @@ flowchart LR
 # Monitoring & Rollback
 
 - Instrument both versions with metrics and logs.
-- Watch error rate, latency, and SLOs per location.
+- Watch error rate, latency, and SLAs per version.
 - If degradation appears: revert 100% to previous version
 
 ---
@@ -92,5 +134,5 @@ flowchart LR
 
 - Considerations for timing - your rollout could be slower than before
 - Decouple DB schema changes, service chang and frontend changes. (backward compatibility)
-- My article about Backward Compatibility: https://medium.com/@frankchen0218/strategies-for-backward-compatible-deployment-in-microservices-architecture-1e6f3f3f4f2c
+- My article about Backward Compatibility: https://medium.com/@angelahanvictorio/strategies-for-rolling-out-service-changes-gradually-and-support-backward-compatibilities-e024d2f38ba0
 ---
